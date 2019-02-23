@@ -1,0 +1,11 @@
+{
+    "ext_name": {
+        "message": "Twitterオリジナル画像ダウンローダー"
+    },
+    "ext_desc": {
+        "message": "ツイッターの画像を原寸サイズで保存する拡張機能です。"
+    },
+    "menu_title": {
+        "message": "オリジナルサイズで画像を保存"
+    }
+}

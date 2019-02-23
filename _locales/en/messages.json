@@ -1,0 +1,11 @@
+{
+    "ext_name": {
+        "message": "Twitter Original Image Downloader"
+    },
+    "ext_desc": {
+        "message": "The extension for saving a twitter image in original size."
+    },
+    "menu_title": {
+        "message": "Save in original size"
+    }
+}
