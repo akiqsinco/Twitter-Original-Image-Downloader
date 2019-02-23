@@ -4,8 +4,8 @@ chrome.contextMenus.create({
     type: 'normal',
     targetUrlPatterns: ['https://pbs.twimg.com/media/*'],
     onclick: info => {
-        const origUrl = info.srcUrl.replace(/:(small|large|thumb)$/, '') + ':orig'
-        const filename = origUrl.replace(/:orig$/, '').match('[^/]+$')[0]
+        const origUrl = info.srcUrl.replace(/(:thumb|:small|:large|:orig)?$/, ':orig')
+        const filename = origUrl.match(/([^/]+):orig$/)[1]
         downloadResource(origUrl, filename)
     }
 })
