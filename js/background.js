@@ -4,11 +4,18 @@ chrome.contextMenus.create({
     type: 'normal',
     targetUrlPatterns: ['https://pbs.twimg.com/media/*'],
     onclick: info => {
-        const origUrl = info.srcUrl.replace(/(:thumb|:small|:large|:orig)?$/, ':orig')
+        const imageUrl = ensureImageUrl(info.srcUrl)
+        const origUrl = imageUrl.replace(/(:thumb|:small|:large|:orig)?$/, ':orig')
         const filename = origUrl.match(/([^/]+):orig$/)[1]
         downloadResource(origUrl, filename)
     }
 })
+
+const ensureImageUrl = srcUrl => {
+    const imageUrl = srcUrl.replace(/\?.*$/, '')
+    const format = srcUrl.match(/format=([^&]+)/)
+    return format ? `${imageUrl}.${format[1]}` : imageUrl
+}
 
 const forceDownload = (blob, filename) => {
     const anchor = document.createElement('a')
